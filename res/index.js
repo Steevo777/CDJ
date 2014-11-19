@@ -104,6 +104,7 @@ $(document).on("pageload", "#addPage", function(e) {
 	}
 	
 	function onCamFail(e) {
+		alert("error picture");
 		console.log('camFail');console.dir(e);
 		navigator.notification.alert("Sorry, something went wrong.", null, "Oops!");
 	}
