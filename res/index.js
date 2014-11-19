@@ -110,7 +110,7 @@ $(document).on("pageload", "#addPage", function(e) {
 	
 	$("#takePicture").on("touchstart", function(e) {
 		e.preventDefault();
-		
+		alert("picture");
 		navigator.camera.getPicture(onCamSuccess, onCamFail, {quality:50, destinationType:Camera.DestinationType.FILE_URI});
 	});
 	
