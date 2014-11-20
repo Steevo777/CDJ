@@ -112,7 +112,7 @@ $(document).on("pageload", "#addPage", function(e) {
 	$("#takePicture").on("touchstart", function(e) {
 		e.preventDefault();
 		var that = this;
-		alert("be navs");
+		alert(navigator.camera.PictureSourceType);
 		that._pictureSource = navigator.camera.PictureSourceType;
 	    that._destinationType = navigator.camera.DestinationType;
 		alert(navigator.camera.PictureSourceType);
