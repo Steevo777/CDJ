@@ -111,23 +111,7 @@ $(document).on("pageload", "#addPage", function(e) {
 	
 	$("#takePicture").on("touchstart", function(e) {
 		e.preventDefault();
-		var that = this;
-		alert(navigator.camera.PictureSourceType);
-		that._pictureSource = navigator.camera.PictureSourceType;
-	    that._destinationType = navigator.camera.DestinationType;
-		alert(navigator.camera.PictureSourceType);
-		navigator.camera.getPicture(onCamSuccess, onCamFail, {quality:50, destinationType:that._destinationType.DATA_URL});
-	
-		// Take picture using device camera and retrieve image as base64-encoded string.
-        //navigator.camera.getPicture(function(){
-        //    that._onPhotoDataSuccess.apply(that,arguments);
-        //},function(){
-        //    that._onFail.apply(that,arguments);
-        //},{
-        //    quality: 50,
-        //    destinationType: that._destinationType.DATA_URL
-        //});
-	
+		navigator.camera.getPicture(onCamSuccess, onCamFail, {quality:50, destinationType:Camera.DestinationType.FILE_URI});
 	});
 	
 	$("#addEntrySubmit").on("touchstart", function(e) {
