@@ -2,6 +2,13 @@ function Diary() {
 	that = this;
 }
 
+//<script>
+//    var encrypted = CryptoJS.TripleDES.encrypt("Message", "Secret Passphrase");
+//    var decrypted = CryptoJS.TripleDES.decrypt(encrypted, "Secret Passphrase");
+//</script>
+
+var secretPassPhrase = "4NemosNautilus";
+
 Diary.prototype.setup = function(callback) {
 
 	//First, setup the database
@@ -10,7 +17,9 @@ Diary.prototype.setup = function(callback) {
 
 }
 
-//Geenric database error handler. Won't do anything for now.
+
+
+//Genric database error handler. Won't do anything for now.
 Diary.prototype.dbErrorHandler = function(e) {
 	console.log('DB Error');
 	console.dir(e);
@@ -49,10 +58,12 @@ Diary.prototype.getEntry = function(id, callback) {
 
 //No support for edits yet
 Diary.prototype.saveEntry = function(data, callback) {
+
+var encpTitle = CryptoJS.TripleDES.encrypt(data.title, secretPassPhrase);
 console.dir(data);
 	this.db.transaction(
 		function(t) {
-			t.executeSql('insert into diary(title,body,image,published) values(?,?,?,?)', [data.title, data.body, data.image, new Date().getTime()],
+			t.executeSql('insert into diary(title,body,image,published) values(?,?,?,?)', [encpTitle, data.body, data.image, new Date().getTime()],
 			function() { 
 				callback();
 			}, this.dbErrorHandler);
