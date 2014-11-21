@@ -61,7 +61,7 @@ $(document).on("pageload", "#mainPage", function(e) {
 		console.log('getEntries');
 		var s = "";
 		for(var i=0, len=data.length; i<len; i++) {
-			s += "<div data-id='"+data[i].id+"'>" + data[i].title + "  " + data[i].published.getDate() + "</div>";
+			s += "<div data-id='"+data[i].id+"'>" + data[i].title + "  " + data[i].published + "</div>";
 		}
 		$("#entryList").html(s);
 
