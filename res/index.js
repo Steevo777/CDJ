@@ -61,7 +61,8 @@ $(document).on("pageload", "#mainPage", function(e) {
 		console.log('getEntries');
 		var s = "";
 		for(var i=0, len=data.length; i<len; i++) {
-			s += "<div data-id='"+data[i].id+"'>" + CryptoJS.TripleDES.decrypt(data[i].title, '4NemosNautilus') + "  " + data[i].published + "</div>";
+			var encrptTitle = CryptoJS.TripleDES.decrypt(data[i].title, "4NemosNautilus");
+			s += "<div data-id='"+data[i].id+"'>" + encrptTitle  + "  " + data[i].published + "</div>";
 		}
 		$("#entryList").html(s);
 
