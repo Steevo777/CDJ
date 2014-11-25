@@ -62,6 +62,7 @@ $(document).on("pageload", "#mainPage", function(e) {
 		var s = "";
 		for(var i=0, len=data.length; i<len; i++) {
 			var encrptTitle = CryptoJS.TripleDES.decrypt(data[i].title, "4NemosNautilus");
+			encrptTitle = encrptTitle.toString(CryptoJS.enc.Latin1);
 			s += "<div data-id='"+data[i].id+"'>" + encrptTitle + "  " + data[i].published + "</div>";
 		}
 		$("#entryList").html(s);
