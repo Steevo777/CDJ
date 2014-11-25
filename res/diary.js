@@ -7,7 +7,7 @@ function Diary() {
 //    var decrypted = CryptoJS.TripleDES.decrypt(encrypted, "Secret Passphrase");
 //</script>
 
-var secretPassPhrase = "4NemosNautilus";
+var scrtPasPhrase = "4NemosNautilus";
 
 Diary.prototype.setup = function(callback) {
 
@@ -59,7 +59,7 @@ Diary.prototype.getEntry = function(id, callback) {
 //No support for edits yet
 Diary.prototype.saveEntry = function(data, callback) {
 
-var encpTitle = CryptoJS.TripleDES.encrypt(data.title, "4NemosNautilus");
+var encpTitle = CryptoJS.TripleDES.encrypt(data.title, scrtPasPhrase);
 console.dir(data);
 	this.db.transaction(
 		function(t) {
