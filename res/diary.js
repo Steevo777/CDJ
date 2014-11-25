@@ -59,7 +59,7 @@ Diary.prototype.getEntry = function(id, callback) {
 //No support for edits yet
 Diary.prototype.saveEntry = function(data, callback) {
 
-var encpTitle = CryptoJS.TripleDES.encrypt(data.title, secretPassPhrase);
+var encpTitle = CryptoJS.TripleDES.encrypt(data.title, "4NemosNautilus");
 console.dir(data);
 	this.db.transaction(
 		function(t) {
