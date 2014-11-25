@@ -63,7 +63,7 @@ var encpTitle = CryptoJS.TripleDES.encrypt(data.title, scrtPasPhrase);
 console.dir(data);
 	this.db.transaction(
 		function(t) {
-			t.executeSql('insert into diary(title,body,image,published) values(?,?,?,?)', [encpTitle, data.body, data.image, new Date().getTime()],
+			t.executeSql('insert into diary(title,body,image,published) values(?,?,?,?)', [encpTitle, data.body, data.image, new Date()],
 			function() { 
 				callback();
 			}, this.dbErrorHandler);
