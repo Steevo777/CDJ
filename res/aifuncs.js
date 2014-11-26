@@ -3,7 +3,7 @@
 function dateFmt(dateStr) {
     if(!dateStr) return "";
 	dateStr = new Date(dateStr);
-    var res = dayName(dateStr.getDate()) + " " + (dateStr.getMonth()+1) + "/" + dateStr.getDate() + "/" + dateStr.getFullYear() + " ";
+    var res = dateStr.dayName() + " " + (dateStr.getMonth()+1) + "/" + dateStr.getDate() + "/" + dateStr.getFullYear() + " ";
     var hour = dateStr.getHours()+1;
     var ampm = "AM";
 	if(hour === 12) ampm = "PM";
