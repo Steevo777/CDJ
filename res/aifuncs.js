@@ -18,6 +18,7 @@ function dateFmt(dateStr) {
 }
 
 function dayName(dateStr) {
+	if(!dateStr) return "";
 	var weekday = new Array(7);
 	weekday[0]=  "Sun";
 	weekday[1] = "Mon";
@@ -27,5 +28,6 @@ function dayName(dateStr) {
 	weekday[5] = "Fri";
 	weekday[6] = "Sat";
 	
-	var n = weekday[dateStr.getDay()];
+	var dayName = weekday[dateStr.getDay()];
+	return dayName;
 }
