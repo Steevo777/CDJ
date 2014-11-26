@@ -3,7 +3,7 @@
 function dateFmt(dateStr) {
     if(!dateStr) return "";
 	dateStr = new Date(dateStr);
-    var res = (dateStr.getMonth()+1) + "/" + dateStr.getDate() + "/" + dateStr.getFullYear() + " ";
+    var res = dayName(dateStr.getDate()) + " " + (dateStr.getMonth()+1) + "/" + dateStr.getDate() + "/" + dateStr.getFullYear() + " ";
     var hour = dateStr.getHours()+1;
     var ampm = "AM";
 	if(hour === 12) ampm = "PM";
@@ -15,4 +15,17 @@ function dateFmt(dateStr) {
     if(minute < 10) minute = "0" + minute;
     res += hour + ":" + minute + " " + ampm;
     return res;
+}
+
+function dayName(dateStr) {
+	var weekday = new Array(7);
+	weekday[0]=  "Sun";
+	weekday[1] = "Mon";
+	weekday[2] = "Tue";
+	weekday[3] = "Wed";
+	weekday[4] = "Thu";
+	weekday[5] = "Fri";
+	weekday[6] = "Sat";
+	
+	var n = weekday[dateStr.getDay()];
 }
