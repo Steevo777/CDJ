@@ -1,4 +1,4 @@
-function pwd() {
+function Pwd() {
 	that = this;
 }
 
