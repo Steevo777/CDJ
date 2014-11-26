@@ -1,4 +1,4 @@
-var diary;
+var pwd;
 var mainView;
 
 document.addEventListener('deviceready', deviceready, false);
@@ -6,9 +6,9 @@ document.addEventListener('deviceready', deviceready, false);
 function deviceready() {
 	console.log('deviceready');
 
-	//create a new instance of our Diary and listen for it to complete it's setup
-	diary = new Diary();
-	diary.setup(startApp);
+	//create a new instance of our Pwd and listen for it to complete it's setup
+	pwd = new Pwd();
+	pwd.setup(startApp);
 
 
 }
@@ -57,7 +57,7 @@ $.get(u,function(res,code) {
 }
 
 $(document).on("pageload", "#mainPage", function(e) {
-	diary.getEntries(function(data) {
+	pwd.getEntries(function(data) {
 		console.log('getEntries');
 		var s = "";
 		for(var i=0, len=data.length; i<len; i++) {
@@ -87,7 +87,7 @@ $(document).on("pageload", "#mainPage", function(e) {
 
 $(document).on("pageload", "#entryPage", function(e) {
 
-	diary.getEntry(Number(e.detail.id), function(ob) {
+	pwd.getEntry(Number(e.detail.id), function(ob) {
 		var content = "<h2>" + ob.title + "</h2>";
 		content += "Written "+dtFormat(ob.published) + "<br/><br/>";
 		content += ob.body;
@@ -123,7 +123,7 @@ $(document).on("pageload", "#addPage", function(e) {
 		var body = $("#entryBody").val();
 		var img = $("#entryPicture").val();
 		//store!
-		diary.saveEntry({title:title,body:body,image:img}, function() {
+		pwd.saveEntry({title:title,body:body,image:img}, function() {
 			pageLoad("main.html");
 		});
 		
